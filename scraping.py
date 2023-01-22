@@ -15,6 +15,3 @@ authors = soup.findAll("small", attrs={"class":"author"})
 # creates a loop, printing quote 
 for quote, author in zip (quotes, authors):
     print(quote.text + " - " + author.text)
-
-
-    
