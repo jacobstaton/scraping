@@ -6,12 +6,12 @@ from bs4 import BeautifulSoup
 page_to_scrape = requests.get("https://quotes.toscrape.com")
 soup = BeautifulSoup(page_to_scrape.text, "html.parser")
 
-# <span class="text" itemprop="text">text</span>
+# from: <span class="text" itemprop="text">text</span>
 quotes = soup.findAll("span", attrs={"class":"text"})
 
-# <small class="author" itemprop="author">Albert Einstein</small>
+# from: <small class="author" itemprop="author">Albert Einstein</small>
 authors = soup.findAll("small", attrs={"class":"author"})
 
-# creates a loop, printing quote 
+# creates a loop, printing quote and author, tidies up print statements
 for quote, author in zip (quotes, authors):
     print(quote.text + " - " + author.text)
